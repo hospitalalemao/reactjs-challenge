@@ -1,29 +1,17 @@
-# Hospital Alemão Oswaldo Cruz - Challenge Front-End ReactJS
+## Executando o Projeto
 
-Fala Dev! Esse repositório é destinado a entrega do desafio de Front-End em ReactJS.
+Abaixo a sequência de passos necessários para poder executar e testar o projeto.
 
-## Descrição do desafio 
-- Desenvolver uma aplicação em ReactJS que deverá consumir uma API fornecida através do RapidAPI (https://rapidapi.com/collection/list-of-free-apis). A escolha da API é livre;
-- Clonar o repositório do HAOC referente a este desafio;
-- Criar um branch com o nome "*front-end-SEUNOME*";
-- Realizar um pull request da sua branch com o projeto finalizado.
+### `yarn install`
 
-## Pré-requisitos:
-- Utilizar Redux
-- Componentização
-- Consumir a API com Axios
+Comando para instalar todas as dependências.
 
-## Diferenciais:
-- Utilizar TypeScript
-- Visual agradável e limpo
+### `yarn start`
 
-## O que será avaliado:
-- Implementação
-- Arquitetura, organização e padrões
-- Clareza no código
-- Comentários no código
-- Instruções no readme (MD) para subida do projeto
+Comando para executar o front-end do projeto.
 
-Caso tenha ficado com alguma dúvida, entre em contato com [desenvolvimento@haoc.com.br](mailto:desenvolvimento@haoc.com.br)
+### `yarn server`
 
-Boa sorte!
+Comando para executar a api do projeto.
+
+**Note: Necessário para poder executar o json-server!**
