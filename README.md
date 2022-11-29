@@ -3,7 +3,7 @@
 Fala Dev! Esse repositório é destinado a entrega do desafio de Front-End em ReactJS.
 
 ## Descrição do desafio 
-- Desenvolver uma aplicação em ReactJS que deverá consumir uma API fornecida através do RapidAPI (https://rapidapi.com/collection/list-of-free-apis). A escolha da API é livre;
+- Desenvolver uma aplicação em ReactJS que deverá consumir uma API fornecida através do RapidAPI ou Any-API (https://rapidapi.com/collection/list-of-free-apis / https://any-api.com/). A escolha da API é livre;
 - Clonar o repositório do HAOC referente a este desafio;
 - Criar um branch com o nome "*front-end-SEUNOME*";
 - Realizar um pull request da sua branch com o projeto finalizado.
