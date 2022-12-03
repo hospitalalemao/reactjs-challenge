@@ -9,6 +9,7 @@ export default createGlobalStyle`
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-family: 'Poppins', sans-serif;
   }
 
   body {
@@ -24,4 +25,6 @@ export default createGlobalStyle`
     --secondary: ${({ theme }) => theme.color.secondary};
     --background: ${({ theme }) => theme.color.background};
   }
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
 `;
