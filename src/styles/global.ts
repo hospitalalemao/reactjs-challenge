@@ -6,6 +6,9 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {

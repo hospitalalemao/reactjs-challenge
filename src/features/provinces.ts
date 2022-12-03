@@ -8,6 +8,9 @@ export const provinces = createSlice({
     selected: {},
   },
   reducers: {
+    selectProvince: (state, action) => {
+      state.selected = action.payload;
+    },
     formatProvinces: (state, action) => {
       const provincesList = [];
       const provincesObj = action.payload;
@@ -58,26 +61,9 @@ export const provinces = createSlice({
       state.value = provincesList;
       state.selected = provincesList[0];
     },
-    sortProvinces: (state, action) => {
-      const { field, orderText } = action.payload;
-
-      if (field) {
-        const order = orderText === 'asc' ? 1 : -1;
-
-        state.value.sort((provinceA: any, provinceB: any) => {
-          if (provinceA[field] > provinceB[field]) {
-            return 1 * order;
-          }
-          if (provinceA[field] < provinceB[field]) {
-            return -1 * order;
-          }
-          return 0;
-        });
-      }
-    },
   },
 });
 
-export const { formatProvinces, sortProvinces } = provinces.actions;
+export const { formatProvinces, selectProvince } = provinces.actions;
 
 export default provinces.reducer;
