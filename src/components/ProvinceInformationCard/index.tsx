@@ -1,32 +1,36 @@
 import { useSelector } from 'react-redux';
 import InformationCard from '../InformationCard';
+import { CardsContainer } from '../InformationCard/styles';
 
 export default function ProvinceInformationCard() {
   const province = useSelector((state) => state.provinces.selected);
 
   return (
-    <div>
+    <CardsContainer direction="column">
       <h1>{province.name}</h1>
 
       <InformationCard
-        title="Contaminações confirmadas"
+        title="Casos"
         value={province.confirmed}
-        value_diff={province.confirmed_diff}
+        valueDiff={province.confirmed_diff}
+        positiveIsGood={false}
       />
       <InformationCard
-        title="Óbitos confirmadas"
+        title="Óbitos"
         value={province.deaths}
-        value_diff={province.deaths_diff}
+        valueDiff={province.deaths_diff}
+        positiveIsGood={false}
       />
       <InformationCard
-        title="Recuperações confirmadas"
+        title="Recuperações"
         value={province.recovered}
-        value_diff={province.recovered_diff}
+        valueDiff={province.recovered_diff}
+        positiveIsGood
       />
       <InformationCard
         title="Taxa de fatalidade"
         value={province.fatality_rate}
       />
-    </div>
+    </CardsContainer>
   );
 }

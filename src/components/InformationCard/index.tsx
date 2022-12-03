@@ -1,13 +1,32 @@
+import { Box, Subtitle, MainValue, DiffValue } from './styles';
+
 export default function InformationCard({
   title = '',
   value = 0,
-  value_diff = 0,
-}) {
+  valueDiff = '',
+  positiveIsGood = true,
+}: InformationCardProps) {
+  const isGood =
+    typeof valueDiff === 'string'
+      ? valueDiff.includes('-') !== positiveIsGood
+      : valueDiff >= 0 === positiveIsGood;
   return (
-    <div>
-      <h2>{title}</h2>
-      <p>{value_diff}</p>
-      <p>{value}</p>
-    </div>
+    <Box>
+      <Subtitle>{title}</Subtitle>
+      <MainValue>{value}</MainValue>
+      <DiffValue isGood={isGood}>{valueDiff}</DiffValue>
+    </Box>
   );
 }
+
+interface InformationCardProps {
+  title: string;
+  value: number | string;
+  valueDiff?: number | string;
+  positiveIsGood?: boolean;
+}
+
+InformationCard.defaultProps = {
+  valueDiff: '',
+  positiveIsGood: true,
+};
