@@ -2,26 +2,30 @@ import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import CountryInformationCard from '../../components/CountryInformationCard';
+import * as Global from '../../components/InformationCard/styles';
+import * as S from './styles';
 import ProvinceInformationCard from '../../components/ProvinceInformationCard';
 import Table from '../../components/Table';
 import { formatProvinces } from '../../features/provinces';
 import api from '../../services/covid_statics_api';
+import DatePickerComponent from '../../components/DatePickerComponent';
 
 function BrazilPage() {
   const provinces = useSelector((state) => state.provinces.value);
+  const { dateFilter } = useSelector((state) => state.dateFilter);
   const dispatch = useDispatch();
 
   const getData = async (): Promise<object> => {
-    const response = await api.get('reports', {
-      params: {
-        iso: 'BRA',
-      },
-    });
+    let params = { iso: 'BRA' };
+    if (dateFilter) {
+      params = { ...params, date: dateFilter };
+    }
+    const response = await api.get('reports', { params });
     return { ...response.data.data };
   };
 
   const { data, isLoading, isError } = useQuery({
-    queryKey: ['reports/brazil'],
+    queryKey: ['reports/brazil', dateFilter],
     queryFn: getData,
   });
 
@@ -37,16 +41,27 @@ function BrazilPage() {
   if (isError) {
     return <h1>Error ao requisitar os dados. Por favor, tente outra vez.</h1>;
   }
+  if (Object.keys(data).length === 0) {
+    return <h1>Não foram encotrados dados.</h1>;
+  }
 
   return (
-    <div>
-      <h1>Brazil Page</h1>
+    <>
+      <S.CountryHeader>
+        <Global.Title>Brasil</Global.Title>
+        <DatePickerComponent />
+      </S.CountryHeader>
       <CountryInformationCard />
-      <ProvinceInformationCard />
-
-      <Table data={provinces} />
-      {/* <pre>{JSON.stringify(provinces, null, 2)}</pre> */}
-    </div>
+      <S.CountryContent>
+        <S.ProvincesTable>
+          <Global.Subtitle>Estados</Global.Subtitle>
+          <Table data={provinces} />
+        </S.ProvincesTable>
+        <S.ProvinceContent>
+          <ProvinceInformationCard />
+        </S.ProvinceContent>
+      </S.CountryContent>
+    </>
   );
 }
 export default BrazilPage;
