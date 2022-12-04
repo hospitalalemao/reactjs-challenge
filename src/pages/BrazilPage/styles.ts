@@ -8,7 +8,7 @@ const CountryHeader = styled.div``;
 
 const CountryContent = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 3rem;
   padding: 2rem;
   flex-wrap: wrap;
   justify-content: space-between;

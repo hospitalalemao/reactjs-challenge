@@ -8,7 +8,7 @@ import ProvinceInformationCard from '../../components/ProvinceInformationCard';
 import Table from '../../components/Table';
 import { formatProvinces } from '../../features/provinces';
 import api from '../../services/covid_statics_api';
-import DatePickerComponent from '../../components/DatePickerComponent';
+import PageTitle from '../../components/PageTitle';
 
 function BrazilPage() {
   const provinces = useSelector((state) => state.provinces.value);
@@ -47,10 +47,7 @@ function BrazilPage() {
 
   return (
     <>
-      <S.CountryHeader>
-        <Global.Title>Brasil</Global.Title>
-        <DatePickerComponent />
-      </S.CountryHeader>
+      <PageTitle title="Brasil" withDatePicker />
       <CountryInformationCard />
       <S.CountryContent>
         <S.ProvincesTable>
