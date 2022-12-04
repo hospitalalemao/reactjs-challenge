@@ -1,17 +1,17 @@
-import { NavLink } from 'react-router-dom';
+import * as S from './styles';
 
 function MenuBar() {
   return (
-    <nav>
+    <S.MenuNav>
       <ul>
         <li>
-          <NavLink to="/">Home</NavLink>
+          <S.StyledMenuLink to="/">Home</S.StyledMenuLink>
         </li>
         <li>
-          <NavLink to="/brazil">Brasil</NavLink>
+          <S.StyledMenuLink to="/brazil">Brasil</S.StyledMenuLink>
         </li>
       </ul>
-    </nav>
+    </S.MenuNav>
   );
 }
 
