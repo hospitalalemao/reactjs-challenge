@@ -56,8 +56,17 @@ export const provinces = createSlice({
           });
         }
       }
+      const totalValuesFormatted = {
+        confirmed: totalValues.confirmed,
+        confirmed_diff: totalValues.confirmed_diff,
+        deaths: totalValues.deaths,
+        deaths_diff: totalValues.deaths_diff,
+        recovered: totalValues.recovered,
+        recovered_diff: totalValues.recovered_diff,
+        fatality_rate: totalValues.fatality_rate,
+      };
 
-      state.total = totalValues;
+      state.total = totalValuesFormatted;
       state.value = provincesList;
       state.selected = provincesList[0];
     },

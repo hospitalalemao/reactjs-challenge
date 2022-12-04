@@ -3,11 +3,12 @@ import styled from 'styled-components';
 const Table = styled.table`
   width: 100%;
   border-spacing: 0;
+  border-radius: var(--radius-default);
   color: #212121;
   text-align: center;
   overflow: hidden;
-  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
-    -9px -9px 16px rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 0px 16px rgba(163, 177, 198, 0.6),
+    0px 0px 16px rgba(163, 177, 198, 0.6);
 
   thead {
     box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6);
@@ -41,17 +42,6 @@ const Table = styled.table`
     width: 100%;
     z-index: -1;
   }
-
-  th > button {
-    width: 100%;
-    border: none;
-    border-radius: 8px;
-    padding: 0.5rem 1rem;
-    box-shadow: inset 10px 10px 15px -10px #c3c3c3,
-      inset -10px -10px 15px -10px #ffffff;
-    cursor: pointer;
-  }
-
   tbody > tr {
     &:hover {
       padding: 20px;
@@ -69,6 +59,14 @@ const ButtonHeader = styled.button`
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  box-shadow: inset 10px 10px 15px -10px #c3c3c3,
+    inset -10px -10px 15px -10px #ffffff;
+  cursor: pointer;
 `;
 
 export { Table, ButtonHeader };

@@ -11,6 +11,7 @@ import {
 import { useDispatch } from 'react-redux';
 import * as S from './styles';
 import { selectProvince } from '../../features/provinces';
+import formatNumber from '../../utils/formatNumber';
 
 export default function Table({ data }) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -28,19 +29,19 @@ export default function Table({ data }) {
         id: 'confirmed',
         accessorKey: 'confirmed',
         header: () => 'Contaminações',
-        cell: (info) => info.getValue(),
+        cell: (info) => formatNumber(info.getValue()),
       },
       {
         id: 'deaths',
         accessorKey: 'deaths',
         header: () => 'Óbitos',
-        cell: (info) => info.getValue(),
+        cell: (info) => formatNumber(info.getValue()),
       },
       {
         id: 'recovered',
         accessorKey: 'recovered',
         header: () => 'Recuperados',
-        cell: (info) => info.getValue(),
+        cell: (info) => formatNumber(info.getValue()),
       },
     ],
     []
@@ -55,7 +56,7 @@ export default function Table({ data }) {
     onSortingChange: setSorting,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
-    debugTable: true,
+    debugTable: false,
   });
 
   return (
