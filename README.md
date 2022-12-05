@@ -1,29 +1,42 @@
 # Hospital Alemão Oswaldo Cruz - Challenge Front-End ReactJS
 
-Fala Dev! Esse repositório é destinado a entrega do desafio de Front-End em ReactJS.
+Aplicativo mobile React Native para listagem de informações do Github de um usuário. Possibilita adicionar uma lista de repositórios favoritos.
 
-## Descrição do desafio 
-- Desenvolver uma aplicação em ReactJS que deverá consumir uma API fornecida através do RapidAPI ou Any-API (https://rapidapi.com/collection/list-of-free-apis / https://any-api.com/). A escolha da API é livre;
-- Clonar o repositório do HAOC referente a este desafio;
-- Criar um branch com o nome "*front-end-SEUNOME*";
-- Realizar um pull request da sua branch com o projeto finalizado.
+Utiliza async storage, redux, styled components, typescript, dentre outras tecnologias.
 
-## Pré-requisitos:
-- Utilizar Redux
-- Componentização
-- Consumir a API com Axios
+### Requisitos
 
-## Diferenciais:
-- Utilizar TypeScript
-- Visual agradável e limpo
+- React Native Development Environment, como descrito em:
+    https://reactnative.dev/docs/environment-setup
+- Emulador Android ou um dispositivo físico
+- yarn package manager (opcional)
+    https://yarnpkg.com/
 
-## O que será avaliado:
-- Implementação
-- Arquitetura, organização e padrões
-- Clareza no código
-- Comentários no código
-- Instruções no readme (MD) para subida do projeto
+### Instalando dependências
 
-Caso tenha ficado com alguma dúvida, entre em contato com [desenvolvimento@haoc.com.br](mailto:desenvolvimento@haoc.com.br)
+Na pasta do projeto, executar no terminal:
 
-Boa sorte!
+`yarn`
+
+ou
+
+`npm install`
+
+### Executando 
+
+Na pasta do projeto, em um terminal:
+
+`yarn start`
+
+ou
+
+`npx react-native start`
+
+Em outra instância do terminal, na mesma pasta:
+
+`yarn android`
+
+ou
+
+`npx react-native run-android`
+
