@@ -5,7 +5,7 @@ function MenuBar() {
     <S.MenuNav>
       <ul>
         <li>
-          <S.StyledMenuLink to="/">Home</S.StyledMenuLink>
+          <S.StyledMenuLink to="/">Lista de Países</S.StyledMenuLink>
         </li>
         <li>
           <S.StyledMenuLink to="/brazil">Brasil</S.StyledMenuLink>
