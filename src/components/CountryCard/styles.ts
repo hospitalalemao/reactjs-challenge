@@ -27,6 +27,11 @@ export const BoxContainer = styled.div`
   padding: 8px;
   box-shadow: 9px 9px 16px rgba(189, 189, 189, 0.6),
     -9px -9px 16px rgba(255, 255, 255, 0.5);
+
+  &:hover {
+    box-shadow: 0 5px 15px var(--primary);
+    transform: scale(1.1);
+  }
 `;
 
 export const Flag = styled.span`

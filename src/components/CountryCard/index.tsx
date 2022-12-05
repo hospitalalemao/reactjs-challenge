@@ -1,15 +1,15 @@
 import * as S from './styles';
 
-interface CountryCardProps {
+interface ICountryCardProps {
   iso: string;
   name: string;
 }
 
-function CountryCard({ country }: { country: CountryCardProps }) {
+function CountryCard({ country }: { country: ICountryCardProps }) {
   return (
     <S.BoxContainer>
       <S.InternalBox>
-        <S.Flag className={`fi fi-${country.iso}`} />
+        <S.Flag className={`fi fi-${country.iso02}`} />
         <h3>{country.name}</h3>
       </S.InternalBox>
     </S.BoxContainer>

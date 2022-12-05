@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import InformationCard from '../InformationCard';
-import * as S from '../InformationCard/styles';
+import * as S from '../GlobalStyledComponents';
 
 export default function CountryInformationCard() {
   const { total } = useSelector((state) => state.provinces);
@@ -25,7 +25,11 @@ export default function CountryInformationCard() {
         valueDiff={total.recovered_diff}
         positiveIsGood
       />
-      <InformationCard title="Taxa de fatalidade" value={total.fatality_rate} />
+      <InformationCard
+        title="Taxa de fatalidade"
+        value={total.fatality_rate}
+        isOnlyInt={false}
+      />
     </S.CardsContainer>
   );
 }
