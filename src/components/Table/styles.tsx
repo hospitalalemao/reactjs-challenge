@@ -53,12 +53,14 @@ const Table = styled.table`
 export const TableRow = styled.tr`
   &:nth-child(2n) > * {
     ${(props) =>
+      // @ts-expect-error: Unreachable code error
       props.active
         ? 'background: var(--positive-color); color: #ffffff;'
         : 'background: #e4e4e4;'}
   }
 
   ${(props) =>
+    // @ts-expect-error: Unreachable code error
     props.active && 'background: var(--positive-color); color: #ffffff;'};
 
   &:hover {

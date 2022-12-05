@@ -1,7 +1,7 @@
 import * as S from './styles';
 
 interface ICountryCardProps {
-  iso: string;
+  iso2: string;
   name: string;
 }
 

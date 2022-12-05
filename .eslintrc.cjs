@@ -21,5 +21,17 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     'react/react-in-jsx-scope': 0,
+    '@typescript-eslint/no-explicit-any': 'off',
+    'react/prop-types': 0,
+    'prefer-destructuring': [
+      'error',
+      {
+        array: false,
+        object: false,
+      },
+      {
+        enforceForRenamedProperties: false,
+      },
+    ],
   },
 };

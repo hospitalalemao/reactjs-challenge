@@ -13,7 +13,9 @@ import LoadingComponent from '../../components/Loading';
 import DatePickerComponent from '../../components/DatePickerComponent';
 
 function CountryPage() {
+  // @ts-expect-error: Unreachable code error
   const provinces = useSelector((state) => state.provinces.value);
+  // @ts-expect-error: Unreachable code error
   const { dateFilter } = useSelector((state) => state.dateFilter);
   const dispatch = useDispatch();
   const { countryISO } = useParams();
@@ -21,6 +23,7 @@ function CountryPage() {
   const getData = async (): Promise<object> => {
     let params = { iso: countryISO };
     if (dateFilter) {
+      // @ts-expect-error: Unreachable code error
       params = { ...params, date: dateFilter };
     }
     const response = await api.get('reports', { params });
@@ -58,7 +61,12 @@ function CountryPage() {
   return (
     <>
       <Global.PageTitleContainer>
-        <Global.Title>{data['0'].region.name}</Global.Title>
+        <Global.Title>
+          {
+            // @ts-expect-error: Unreachable code error
+            data['0'].region.name
+          }
+        </Global.Title>
         <DatePickerComponent />
       </Global.PageTitleContainer>
       <CountryInformationCard />

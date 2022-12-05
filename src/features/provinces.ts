@@ -9,6 +9,7 @@ export const provinces = createSlice({
   },
   reducers: {
     selectProvince: (state, action) => {
+      /* eslint no-param-reassign: "error" */
       state.selected = action.payload;
     },
     formatProvinces: (state, action) => {
@@ -66,8 +67,13 @@ export const provinces = createSlice({
         fatality_rate: totalValues.fatality_rate,
       };
 
+      /* eslint no-param-reassign: "error" */
       state.total = totalValuesFormatted;
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       state.value = provincesList;
+
       state.selected = provincesList[0];
     },
   },

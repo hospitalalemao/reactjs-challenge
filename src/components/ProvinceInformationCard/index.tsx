@@ -3,6 +3,7 @@ import InformationCard from '../InformationCard';
 import * as Global from '../GlobalStyledComponents';
 
 export default function ProvinceInformationCard() {
+  // @ts-expect-error: Unreachable code error
   const province = useSelector((state) => state.provinces.selected);
 
   return (

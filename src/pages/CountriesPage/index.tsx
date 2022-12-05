@@ -8,9 +8,10 @@ import SearchField from '../../components/SearchField';
 import api from '../../services/covid_statics_api';
 import getCountryISO2 from '../../utils/getCountryISO2.js';
 
-function HomePage() {
+function CountriesPage() {
   const [countries, setCountries] = useState([]);
 
+  // @ts-expect-error: Unreachable code error
   const formatData = (coutriesObj) => {
     const coutriesObjLength = Object.keys(coutriesObj).length;
     const countriesList = [];
@@ -38,6 +39,7 @@ function HomePage() {
     const data = { ...response.data.data };
     const formattedData = formatData(data);
 
+    // @ts-expect-error: Unreachable code error
     setCountries(formattedData);
 
     return formattedData;
@@ -61,6 +63,7 @@ function HomePage() {
   }
 
   const handleSearch = (countryName: string) => {
+    // @ts-expect-error: Unreachable code error
     const filteredCountries = data.filter((country) =>
       country.name.toLowerCase().includes(countryName.toLowerCase())
     );
@@ -75,7 +78,7 @@ function HomePage() {
       </Global.PageTitleContainer>
 
       <Global.GridCard>
-        {countries.map((country) => (
+        {countries.map((country: ICountriesPage) => (
           <NavLink to={`/country/${country.iso}`} key={country.index}>
             <CountryCard country={country} />
           </NavLink>
@@ -84,4 +87,11 @@ function HomePage() {
     </>
   );
 }
-export default HomePage;
+
+interface ICountriesPage {
+  index: number;
+  iso: string;
+  iso2: string;
+  name: string;
+}
+export default CountriesPage;

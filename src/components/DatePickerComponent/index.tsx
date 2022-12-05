@@ -10,7 +10,11 @@ import DatePickerButton from './styles';
 
 registerLocale('pt', pt);
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 const CustomInput = forwardRef(({ value, onClick }, ref) => (
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   <DatePickerButton onClick={onClick} ref={ref}>
     <h3>{format(new Date(value), 'dd/MM/yyyy')}</h3>
     <FaCalendarAlt />
@@ -19,6 +23,7 @@ const CustomInput = forwardRef(({ value, onClick }, ref) => (
 CustomInput.displayName = 'CustomInputDataPicker';
 
 export default function DatePickerComponent() {
+  // @ts-expect-error: Unreachable code error
   const { date } = useSelector((state) => state.dateFilter);
   const dispatch = useDispatch();
   const YEAR = 2020;

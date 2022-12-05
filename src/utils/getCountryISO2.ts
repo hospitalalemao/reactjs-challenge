@@ -252,7 +252,8 @@ const countryISOMapping = {
   XKX: 'XK',
 };
 
-const getCountryISO2 = (countryCode) => {
+const getCountryISO2 = (countryCode: string) => {
+  // @ts-expect-error: Unreachable code error
   return countryISOMapping[countryCode];
 };
 
