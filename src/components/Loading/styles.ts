@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const LoadingComponentContainer = styled.div`
+const LoadingContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,4 +8,4 @@ const LoadingComponentContainer = styled.div`
   height: 60vh;
   width: auto;
 `;
-export default LoadingComponentContainer;
+export default LoadingContainer;
