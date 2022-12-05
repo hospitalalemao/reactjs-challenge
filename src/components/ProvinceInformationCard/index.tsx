@@ -1,13 +1,13 @@
 import { useSelector } from 'react-redux';
 import InformationCard from '../InformationCard';
-import { CardsContainer } from '../InformationCard/styles';
+import * as Global from '../GlobalStyledComponents';
 
 export default function ProvinceInformationCard() {
   const province = useSelector((state) => state.provinces.selected);
 
   return (
-    <CardsContainer direction="column">
-      <h1>{province.name}</h1>
+    <Global.CardsContainer direction="column">
+      <Global.Subtitle>{province.name}</Global.Subtitle>
 
       <InformationCard
         title="Casos"
@@ -30,7 +30,8 @@ export default function ProvinceInformationCard() {
       <InformationCard
         title="Taxa de fatalidade"
         value={province.fatality_rate}
+        positiveIsGood={false}
       />
-    </CardsContainer>
+    </Global.CardsContainer>
   );
 }

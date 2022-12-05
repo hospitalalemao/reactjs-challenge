@@ -2,9 +2,8 @@ import { useQuery } from '@tanstack/react-query';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import CountryCard from '../../components/CountryCard';
-import { GridCard } from '../../components/InformationCard/styles';
 import LoadingComponent from '../../components/Loading';
-import * as Global from '../../components/InformationCard/styles';
+import * as Global from '../../components/GlobalStyledComponents';
 import SearchField from '../../components/SearchField';
 import api from '../../services/covid_statics_api';
 import getCountryISO2 from '../../utils/getCountryISO2.js';
@@ -18,11 +17,12 @@ function HomePage() {
 
     for (let i = 0; i <= coutriesObjLength; i += 1) {
       if (coutriesObj[i]) {
-        const iso = getCountryISO2(coutriesObj[i].iso);
-        if (iso) {
+        const iso02 = getCountryISO2(coutriesObj[i].iso);
+        if (iso02) {
           countriesList.push({
             index: i,
-            iso: iso.toLowerCase(),
+            iso: coutriesObj[i].iso,
+            iso02: iso02.toLowerCase(),
             name: coutriesObj[i].name,
           });
         } else {
@@ -48,12 +48,16 @@ function HomePage() {
     queryFn: getData,
   });
 
-  if (isLoading) {
+  if (isLoading || !countries.length) {
     return <LoadingComponent />;
   }
 
   if (isError) {
-    return <h1>Error ao requisitar os dados. Por favor, tente outra vez.</h1>;
+    return (
+      <Global.CenterContainer>
+        <h1>Error ao requisitar os dados. Por favor, tente outra vez.</h1>
+      </Global.CenterContainer>
+    );
   }
 
   const handleSearch = (countryName: string) => {
@@ -70,13 +74,13 @@ function HomePage() {
         <SearchField handleSearch={handleSearch} />
       </Global.PageTitleContainer>
 
-      <GridCard>
+      <Global.GridCard>
         {countries.map((country) => (
-          <NavLink to="/brazil" key={country.index}>
+          <NavLink to={`/country/${country.iso}`} key={country.index}>
             <CountryCard country={country} />
           </NavLink>
         ))}
-      </GridCard>
+      </Global.GridCard>
     </>
   );
 }
