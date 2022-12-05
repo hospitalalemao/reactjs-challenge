@@ -7,8 +7,12 @@ declare module 'styled-components' {
       primary: string;
       secondary: string;
       background: string;
+
+      title_card: string;
+      negative: string;
+      positive: string;
+
       title: string;
-      text: string;
     };
   }
 }

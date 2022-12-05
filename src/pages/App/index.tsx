@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MenuBar from '../../components/MenuBar';
-import BrazilPage from '../BrazilPage';
+import CountryPage from '../CountryPage';
 import HomePage from '../CountriesPage';
 import AppContainer from './styles';
+import PageNotFound from '../PageNotFound';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <AppContainer>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/brazil" element={<BrazilPage />} />
+          <Route path="/country/:countryISO" element={<CountryPage />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </AppContainer>
     </BrowserRouter>

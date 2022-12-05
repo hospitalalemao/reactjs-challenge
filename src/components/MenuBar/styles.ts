@@ -30,11 +30,11 @@ export const StyledMenuLink = styled(NavLink)`
     transform: scale(1.05);
     box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.1),
       -4px -4px 10px rgba(255, 255, 255, 1);
-    color: var(--primary);
+    color: var(--secondary);
   }
   &.active {
     outline: none;
-    color: var(--primary);
+    color: var(--secondary);
     transform: scale(0.95);
     box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.1),
       -4px -4px 10px rgba(255, 255, 255, 1),

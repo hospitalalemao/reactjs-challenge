@@ -17,12 +17,12 @@ function HomePage() {
 
     for (let i = 0; i <= coutriesObjLength; i += 1) {
       if (coutriesObj[i]) {
-        const iso02 = getCountryISO2(coutriesObj[i].iso);
-        if (iso02) {
+        const iso2 = getCountryISO2(coutriesObj[i].iso);
+        if (iso2) {
           countriesList.push({
             index: i,
             iso: coutriesObj[i].iso,
-            iso02: iso02.toLowerCase(),
+            iso2: iso2.toLowerCase(),
             name: coutriesObj[i].name,
           });
         } else {

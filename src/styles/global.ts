@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { device } from './responsive';
 
 export default createGlobalStyle`
   * {
@@ -13,18 +14,28 @@ export default createGlobalStyle`
   }
 
   body {
-    font-size: 16px;
+    font-size: 14px;
     background: ${({ theme }) => theme.color.background};
     font-display: swap;
     font-weight: 400;
     transition: all 0.5s ease-out;
+
+    @media ${device.tablet} { 
+      font-size: 16px;
+    }
   }
 
   :root {
     --primary: ${({ theme }) => theme.color.primary};
     --secondary: ${({ theme }) => theme.color.secondary};
     --background: ${({ theme }) => theme.color.background};
-  }
 
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+    --title-card-color: ${({ theme }) => theme.color.title_card};
+    --negative-color: ${({ theme }) => theme.color.negative};
+    --positive-color: ${({ theme }) => theme.color.positive};
+    
+    --title-color: ${({ theme }) => theme.color.title};
+
+    --radius-default: 8px;
+}
 `;

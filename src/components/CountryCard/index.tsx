@@ -9,7 +9,7 @@ function CountryCard({ country }: { country: ICountryCardProps }) {
   return (
     <S.BoxContainer>
       <S.InternalBox>
-        <S.Flag className={`fi fi-${country.iso02}`} />
+        <S.Flag className={`fi fi-${country.iso2}`} />
         <h3>{country.name}</h3>
       </S.InternalBox>
     </S.BoxContainer>
