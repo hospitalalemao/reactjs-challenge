@@ -8,7 +8,7 @@ function MenuBar() {
           <S.StyledMenuLink to="/">Lista de Países</S.StyledMenuLink>
         </li>
         <li>
-          <S.StyledMenuLink to="/brazil">Brasil</S.StyledMenuLink>
+          <S.StyledMenuLink to="/country/bra">Brasil</S.StyledMenuLink>
         </li>
       </ul>
     </S.MenuNav>

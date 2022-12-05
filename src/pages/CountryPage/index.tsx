@@ -1,22 +1,25 @@
 import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import CountryInformationCard from '../../components/CountryInformationCard';
-import * as Global from '../../components/InformationCard/styles';
+import * as Global from '../../components/GlobalStyledComponents';
 import * as S from './styles';
 import ProvinceInformationCard from '../../components/ProvinceInformationCard';
 import Table from '../../components/Table';
 import { formatProvinces } from '../../features/provinces';
 import api from '../../services/covid_statics_api';
-import PageTitle from '../../components/PageTitle';
+import LoadingComponent from '../../components/Loading';
+import DatePickerComponent from '../../components/DatePickerComponent';
 
-function BrazilPage() {
+function CountryPage() {
   const provinces = useSelector((state) => state.provinces.value);
   const { dateFilter } = useSelector((state) => state.dateFilter);
   const dispatch = useDispatch();
+  const { countryISO } = useParams();
 
   const getData = async (): Promise<object> => {
-    let params = { iso: 'BRA' };
+    let params = { iso: countryISO };
     if (dateFilter) {
       params = { ...params, date: dateFilter };
     }
@@ -25,7 +28,7 @@ function BrazilPage() {
   };
 
   const { data, isLoading, isError } = useQuery({
-    queryKey: ['reports/brazil', dateFilter],
+    queryKey: [`reports/${countryISO}`, dateFilter],
     queryFn: getData,
   });
 
@@ -36,18 +39,28 @@ function BrazilPage() {
   }, [data, dispatch]);
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <LoadingComponent />;
   }
   if (isError) {
-    return <h1>Error ao requisitar os dados. Por favor, tente outra vez.</h1>;
+    return (
+      <Global.CenterContainer>
+        <h1>Error ao requisitar os dados. Por favor, tente outra vez.</h1>
+      </Global.CenterContainer>
+    );
   }
   if (Object.keys(data).length === 0) {
-    return <h1>Não foram encotrados dados.</h1>;
+    return (
+      <Global.CenterContainer>
+        <h1>Não foram encotrados dados.</h1>
+      </Global.CenterContainer>
+    );
   }
-
   return (
     <>
-      <PageTitle title="Brasil" withDatePicker />
+      <Global.PageTitleContainer>
+        <Global.Title>{data['0'].region.name}</Global.Title>
+        <DatePickerComponent />
+      </Global.PageTitleContainer>
       <CountryInformationCard />
       <S.CountryContent>
         <S.ProvincesTable>
@@ -61,4 +74,4 @@ function BrazilPage() {
     </>
   );
 }
-export default BrazilPage;
+export default CountryPage;
