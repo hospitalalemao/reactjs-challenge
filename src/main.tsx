@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import GlobalStyle from './styles/global';
 import light from './styles/themes/light';
 import App from './pages/App';
-import store from './store';
+import { store } from './store';
 
 const queryClient = new QueryClient({
   defaultOptions: {
