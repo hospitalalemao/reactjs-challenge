@@ -1,10 +1,9 @@
 import { Dna } from 'react-loader-spinner';
-import LoadingContainer from './styles';
-import * as Global from '../InformationCard/styles';
+import * as Global from '../GlobalStyledComponents';
 
 export default function Loading() {
   return (
-    <LoadingContainer>
+    <Global.CenterContainer>
       <Dna
         visible
         height="200"
@@ -14,6 +13,6 @@ export default function Loading() {
         wrapperClass="dna-wrapper"
       />
       <Global.Title>Carregando...</Global.Title>
-    </LoadingContainer>
+    </Global.CenterContainer>
   );
 }
